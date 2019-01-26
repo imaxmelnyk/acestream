@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-COPY install /
+COPY ["install", "/"]
 RUN ["chmod", "+x", "/install"]
 RUN ["/install"]
 

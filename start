@@ -1,7 +1,9 @@
 #!/bin/sh
 
+BASEDIR=$(dirname "$0")
+
 if [[ "$(docker images -q acestream)" == "" ]]; then
-  docker build . -t acestream
+  docker build "$BASEDIR" -t acestream
 fi
 
 if [[ "$(docker ps -aqf name=acestream)" == "" ]]; then
