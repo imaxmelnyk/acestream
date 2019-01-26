@@ -1,0 +1,20 @@
+#!/bin/sh
+
+USAGE="Usage:  play LINK\n"
+
+if [[ $# -ne 1 ]]; then
+  echo "\"play\" requires 1 argument.\n"
+  echo $USAGE
+  exit 1
+fi
+
+if ! [[ $1 =~ ^acestream:\/\/([a-zA-Z0-9]+)$ ]]; then
+  echo "\"play\" requires valid acestream link.\n"
+  echo $USAGE
+  exit 1
+fi
+
+SOURCE_LINK="acestream://"
+FINAL_LINK="http://127.0.0.1:6878/ace/getstream?id="
+
+/Applications/VLC.app/Contents/MacOS/VLC ${1/$SOURCE_LINK/$FINAL_LINK} &> /dev/null &
