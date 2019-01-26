@@ -1,0 +1,19 @@
+#!/bin/sh
+
+apt-get update
+apt-get install -y \
+    wget \
+    net-tools \
+    libxslt1.1 \
+    libpython2.7 \
+    python-setuptools \
+    python-m2crypto \
+    python-apsw
+
+wget "http://dl.acestream.org/linux/acestream_3.1.16_ubuntu_16.04_x86_64.tar.gz"
+tar zxvf acestream_3.1.16_ubuntu_16.04_x86_64.tar.gz
+rm acestream_3.1.16_ubuntu_16.04_x86_64.tar.gz
+mv acestream_3.1.16_ubuntu_16.04_x86_64 /opt/acestream
+
+echo "/opt/acestream/lib" >> /etc/ld.so.conf
+ldconfig

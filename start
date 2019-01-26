@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [[ "$(docker images -q acestream)" == "" ]]; then
+  docker build . -t acestream
+fi
+
+if [[ "$(docker ps -aqf name=acestream)" == "" ]]; then
+  docker create -p 6878:6878 --name acestream acestream
+fi
+
+docker start acestream
