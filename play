@@ -17,4 +17,5 @@ fi
 SOURCE_LINK="acestream://"
 FINAL_LINK="http://127.0.0.1:6878/ace/getstream?id="
 
+pkill -f "VLC"
 /Applications/VLC.app/Contents/MacOS/VLC --play-and-exit ${1/$SOURCE_LINK/$FINAL_LINK} &> /dev/null &
