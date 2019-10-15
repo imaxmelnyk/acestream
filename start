@@ -2,12 +2,12 @@
 
 BASEDIR=$(dirname "$0")
 
-if [[ "$(docker images -q acestream)" == "" ]]; then
-  docker build "$BASEDIR" -t acestream
+if [[ "$(docker images -q imaxmelnyk-acestream)" == "" ]]; then
+  docker build "$BASEDIR" -t imaxmelnyk-acestream
 fi
 
-if [[ "$(docker ps -aqf name=acestream)" == "" ]]; then
-  docker create -p 6878:6878 --name acestream acestream
+if [[ "$(docker ps -aqf name=imaxmelnyk-acestream)" == "" ]]; then
+  docker create -p 6878:6878 --name imaxmelnyk-acestream imaxmelnyk-acestream
 fi
 
-docker start acestream
+docker start imaxmelnyk-acestream
